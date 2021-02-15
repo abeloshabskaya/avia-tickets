@@ -1,29 +1,29 @@
 const form = document.getElementById('form')
 const inputTicket = document.getElementById('inputTicket')
-const resetBtn = document.getElementById('resetApp')
+const buttons = Array.from(document.querySelectorAll('.button'))
 
 function changeContainer() {
-    const containerActive = document.querySelector('.js-container.is-active')
-    const containerInactive = document.querySelector('.js-container:not(.is-active)')
-
-    containerActive.classList.remove('is-active')
-    containerInactive.classList.add('is-active')
+    const containers = document.querySelectorAll('.js-container')
+    containers.forEach(container => {
+        const classList = container.classList
+        if (classList.contains('is-active')) {
+            classList.remove('is-active')
+        } else {
+            classList.add('is-active')
+        }
+    })
 }
 
-const buttons = Array.from(document.querySelectorAll('button'))
+function resetInputTicket() {
+    inputTicket.value = ''
+}
 
 buttons.forEach(btn => {
     btn.onclick = changeContainer
 })
 
-function resetApp() {
-    inputTicket.value = ''
-}
-
-form.onsubmit = (event) => {
+form.onsubmit = event => {
     event.preventDefault()
-    
-    setTimeout(resetApp, 500)
-}
 
-resetBtn.onclick = changeContainer
+    setTimeout(resetInputTicket, 500)
+}
