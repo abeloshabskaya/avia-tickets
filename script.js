@@ -6,11 +6,7 @@ function changeContainer() {
     const containers = document.querySelectorAll('.js-container')
     containers.forEach(container => {
         const classList = container.classList
-        if (classList.contains('is-active')) {
-            classList.remove('is-active')
-        } else {
-            classList.add('is-active')
-        }
+        classList.contains('is-active') ? classList.remove('is-active') : classList.add('is-active')
     })
 }
 
