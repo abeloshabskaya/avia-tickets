@@ -1,6 +1,6 @@
 const form = document.getElementById('form')
 const inputTicket = document.getElementById('inputTicket')
-const buttons = Array.from(document.querySelectorAll('.button'))
+const buttons = document.querySelectorAll('.button')
 
 function changeContainer() {
     const containers = document.querySelectorAll('.js-container')
