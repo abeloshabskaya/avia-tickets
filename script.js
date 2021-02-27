@@ -1,9 +1,9 @@
 const form = document.getElementById('form')
 const inputTicket = document.getElementById('inputTicket')
 const buttons = document.querySelectorAll('.button')
+const containers = document.querySelectorAll('.js-container')
 
-function changeContainer() {
-    const containers = document.querySelectorAll('.js-container')
+function changeContainer(containers) {
     containers.forEach(container => {
         changeClass(container, 'is-active')
     })
@@ -18,8 +18,11 @@ function resetInputTicket() {
     inputTicket.value = ''
 }
 
+
 buttons.forEach(btn => {
-    btn.onclick = changeContainer
+    btn.onclick = function() {
+        changeContainer(containers)
+    }
 })
 
 form.onsubmit = event => {
