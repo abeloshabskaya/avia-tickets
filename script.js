@@ -20,9 +20,9 @@ function resetInputTicket() {
 
 
 buttons.forEach(btn => {
-    btn.onclick = function() {
+    btn.addEventListener('click', function() {
         changeContainer(containers)
-    }
+    })
 })
 
 form.onsubmit = event => {
